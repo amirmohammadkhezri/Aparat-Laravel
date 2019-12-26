@@ -3,6 +3,9 @@
 /**
  * روت های مربوط به Auth رو نگهداری میکنه
  **/
+
+use Illuminate\Routing\Route;
+
 Route::group([], function ($router) {
     $router->group(['namespace' => '\Laravel\Passport\Http\Controllers'], function ($router) {
         $router->post('login', [
@@ -78,6 +81,11 @@ Route::group(['middleware' => ['auth:api']], function ($router) {
 /**
  * روت های کانال
  */
+
+
+//Route::group([],function ($router){});
+
+
 Route::group(['middleware' => ['auth:api'], 'prefix' => '/channel'], function ($router) {
     $router->put('/{id?}', [
         'as' => 'channel.update',
